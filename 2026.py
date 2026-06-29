@@ -25,16 +25,16 @@ root.geometry("1050x580") # app size
 
 #input variables
 
-name_var    = tk.StringVar()
+name_var = tk.StringVar()
 receipt_var = tk.StringVar()
-item_var    = tk.StringVar()
-qty_var     = tk.StringVar()
+item_var = tk.StringVar()
+qty_var = tk.StringVar()
 
-name_entry    = None
+name_entry = None
 receipt_entry = None
-qty_entry     = None
-price_label   = None
-tree          = None
+qty_entry = None
+price_label = None
+tree = None
 
 #add a rental to the list
 
