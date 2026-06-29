@@ -86,8 +86,7 @@ def add_rental():
 
     # save to file
 
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
-    line = f"{timestamp} | Receipt: {receipt} | Customer: {name} | Item: {item} | Qty: {qty} | Total: ${total:.2f}\n"
+    line = f" Receipt: {receipt} | Customer: {name} | Item: {item} | Qty: {qty} | Total: ${total:.2f}\n"
     with open("rentals.txt", "a") as f:
         f.write(line)
 
