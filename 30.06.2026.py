@@ -11,11 +11,11 @@ from datetime import datetime
 # Keeping price in one place means change only needs to happen
 # here not duplicated throughout the anywhere else in the program
 items_for_rent = {         
-    "Bouncy Castle" : 125, 
-    "Table" : 10,
-    "Chair" : 3,
-    "Table wear" : 1,
-    "Party lights" : 75
+    "Bouncy Castle - $125" : 125, 
+    "Table - $10" : 10,
+    "Chair - $3" : 3,
+    "Table wear - $1" : 1,
+    "Party lights - $75" : 75
 }
 
 # Column headers for the treeveiw table, defined once 
@@ -76,6 +76,14 @@ def add_rental():
         messagebox.showerror("Error", "Name is required")
         return
     
+    # name.split() seperates name through spaces and .isalpha checks
+    # that name is only letters and no numbers or expressions
+    # for loop so it checks every component of .split()
+    for part in name.split():
+        if not part.isalpha():
+            messagebox.showerror("Error", "name should only be letters.")
+            return
+        
     # checks if receipt is blank
     if not receipt:
         messagebox.showerror("Error", "Receipt is required.")
@@ -97,6 +105,12 @@ def add_rental():
     if not qty_str.isdigit():
         messagebox.showerror("Error", "Quantity must be a number")
         return
+    
+    # receipt must be 6 digits and it only checks this after we know it is receipt is a digit
+    if not (receipt.isdigit() and len(receipt) == 6):
+        messagebox.showerror("Error", "receipt must be exactly 6 digits (000000 - 999999).")
+        return
+
     
     # Ensures input is in range of items available to rent
     # makes sure typos like 10 000 or 0 can't get entered 
